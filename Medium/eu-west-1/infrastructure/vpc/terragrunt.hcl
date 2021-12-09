@@ -30,7 +30,7 @@ inputs = {
   enable_dns_support   = true
 
   tags = {
-    Name        = "VPC"
+    Name        = "Terragrunt-VPC"
     Owner       = "Marcus"
     Contact     = "marcus.tse"
     Project     = "Terragrunt Medium"
