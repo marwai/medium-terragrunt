@@ -46,4 +46,11 @@ inputs = {
       protocol = "HTTP"
     }
   ]
+  tags = {
+    Service     = "external-alb"
+    Owner       = "Marcus"
+    Contact     = "marcus.tse"
+    Project     = "Terragrunt Medium"
+    Environment = "Development"
+  }
 }

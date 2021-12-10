@@ -32,19 +32,19 @@ variable "public_subnet_ids" {
 }
 
 variable "max" {
-  default     = 1
+  default     = 6
   type        = number
   description = "Maximum number of autoscaling group instances"
 }
 
 variable "min" {
-  default     = 1
+  default     = 3
   type        = number
   description = "Minimum number of autoscaling groups instances"
 }
 
 variable "desired_capacity" {
-  default     = 1
+  default     = 3
   type        = number
   description = "Desired number of Autoscaling Groups"
 }
