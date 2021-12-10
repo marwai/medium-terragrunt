@@ -39,12 +39,12 @@ inputs = {
     }
   ]
 
-  # tags = {
-  #     Name        = "external-security-group"
-  #     Owner       = "Marcus"
-  #     Contact     = "marcus.tse"
-  #     Project     = "Terragrunt Medium"
-  #     Environment = "Development"
-  #   }
+  tags = {
+    Name        = "external-lb-security-group"
+    Owner       = "Marcus"
+    Contact     = "marcus.tse"
+    Project     = "Terragrunt Medium"
+    Environment = "Development"
+  }
 }
 
