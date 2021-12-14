@@ -1,1 +1,1 @@
-this is what the project does
+Description of the Project
