@@ -10,6 +10,7 @@ terraform {
       "init"
     ]
 
+
     arguments = [
     ]
   }
@@ -37,7 +38,7 @@ dependency "ami" {
 
 inputs = {
   # Launch configuration
-  name      = "web-server"
+  name      = "web-server-asg-terragrunt"
   lc_name   = "example-lc"
   create_lc = true
   use_lc    = true
@@ -51,31 +52,32 @@ inputs = {
   user_data = "./web_server.sh.tpl"
   # ebs_block_device = [
   #   {
-  #     device_name           = "/dev/xvdz"
+  #     device_name           = "/dev/sda1"
   #     volume_type           = "gp2"
   #     volume_size           = "8"
   #     delete_on_termination = true
   #   },
   # ]
 
-  # root_block_device = [
-  #   {
-  #     volume_size = "10"
-  #     volume_type = "gp2"
-  #   },
-  # ]
+  root_block_device = [
+    {
+      volume_size = "8"
+      volume_type = "gp2"
+      encrypted   = true
+    },
+  ]
 
   # Auto scaling group
   asg_name                  = "example-asg"
   vpc_zone_identifier       = dependency.vpc.outputs.private_subnets
   health_check_type         = "EC2"
-  min_size                  = 1
+  min_size                  = 3
   max_size                  = 6
-  desired_capacity          = 1
+  desired_capacity          = 3
   wait_for_capacity_timeout = 0
-
-
-  target_group_arns = dependency.external-alb.outputs.target_group_arns
+  iam_instance_profile_name = "webserver-env-web-server-ami"
+  iam_instance_profile_arn  = "arn:aws:iam::323040907683:instance-profile/webserver-env-web-server-ami"
+  target_group_arns         = dependency.external-alb.outputs.target_group_arns
 
   tags = [
     {

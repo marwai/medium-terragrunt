@@ -1,0 +1,71 @@
+[0m# aws_security_group.this_name_prefix[0]:
+resource "aws_security_group" "this_name_prefix" {
+    [1m[0marn[0m[0m                    = "arn:aws:ec2:eu-west-1:323040907683:security-group/sg-0e68e9dc2e5dc6ef0"
+    [1m[0mdescription[0m[0m            = "Instance SG to allow LB"
+    [1m[0megress[0m[0m                 = []
+    [1m[0mid[0m[0m                     = "sg-0e68e9dc2e5dc6ef0"
+    [1m[0mingress[0m[0m                = []
+    [1m[0mname[0m[0m                   = "front-end-security-group-asg-20211214102224914300000001"
+    [1m[0mname_prefix[0m[0m            = "front-end-security-group-asg-"
+    [1m[0mowner_id[0m[0m               = "323040907683"
+    [1m[0mrevoke_rules_on_delete[0m[0m = false
+    [1m[0mtags[0m[0m                   = {
+        "Contact"     = "marcus.tse"
+        "Environment" = "Development"
+        "Name"        = "frontend-security-group"
+        "Owner"       = "Marcus"
+        "Project"     = "Terragrunt Medium"
+    }
+    [1m[0mtags_all[0m[0m               = {
+        "Contact"     = "marcus.tse"
+        "Environment" = "Development"
+        "Name"        = "frontend-security-group"
+        "Owner"       = "Marcus"
+        "Project"     = "Terragrunt Medium"
+    }
+    [1m[0mvpc_id[0m[0m                 = "vpc-090aee94d1ac3d5f2"
+
+    timeouts {
+        [1m[0mcreate[0m[0m = "10m"
+        [1m[0mdelete[0m[0m = "15m"
+    }
+}
+
+# aws_security_group_rule.egress_with_cidr_blocks[0]:
+resource "aws_security_group_rule" "egress_with_cidr_blocks" {
+    [1m[0mcidr_blocks[0m[0m       = [
+        "0.0.0.0/0",
+    ]
+    [1m[0mdescription[0m[0m       = "All egress"
+    [1m[0mfrom_port[0m[0m         = 0
+    [1m[0mid[0m[0m                = "sgrule-2380272082"
+    [1m[0mprefix_list_ids[0m[0m   = []
+    [1m[0mprotocol[0m[0m          = "-1"
+    [1m[0msecurity_group_id[0m[0m = "sg-0e68e9dc2e5dc6ef0"
+    [1m[0mself[0m[0m              = false
+    [1m[0mto_port[0m[0m           = 0
+    [1m[0mtype[0m[0m              = "egress"
+}
+
+# aws_security_group_rule.ingress_with_source_security_group_id[0]:
+resource "aws_security_group_rule" "ingress_with_source_security_group_id" {
+    [1m[0mdescription[0m[0m              = "allow lb ingress"
+    [1m[0mfrom_port[0m[0m                = 80
+    [1m[0mid[0m[0m                       = "sgrule-3961275170"
+    [1m[0mprefix_list_ids[0m[0m          = []
+    [1m[0mprotocol[0m[0m                 = "tcp"
+    [1m[0msecurity_group_id[0m[0m        = "sg-0e68e9dc2e5dc6ef0"
+    [1m[0mself[0m[0m                     = false
+    [1m[0msource_security_group_id[0m[0m = "sg-0ff750e643b01fa4d"
+    [1m[0mto_port[0m[0m                  = 80
+    [1m[0mtype[0m[0m                     = "ingress"
+}
+
+
+Outputs:
+
+security_group_description = "Instance SG to allow LB"
+security_group_id = "sg-0e68e9dc2e5dc6ef0"
+security_group_name = "front-end-security-group-asg-20211214102224914300000001"
+security_group_owner_id = "323040907683"
+security_group_vpc_id = "vpc-090aee94d1ac3d5f2"[0m[0m

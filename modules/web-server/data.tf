@@ -70,27 +70,27 @@ data "aws_iam_policy_document" "ssm" {
 ##     Bucket    ##
 #########################
 
-data "aws_iam_policy_document" "bucket_policy" {
-  statement {
-    actions = [
-      "s3:GetObject",
-      "s3:ListAllMyBuckets",
-      "s3:ListBucket",
-      "s3:PutObject",
-      "s3:PutObjectAcl",
-      "s3:GetBucketAcl",
-      "s3:DeleteObject",
-      "s3:PutObjectTagging",
-      "s3:GetObjectTagging",
-      "s3:DeleteObjectTagging",
-      "s3:GetLifecycleConfiguration",
-      "s3:GetBucketAcl",
-      "s3:PutLifecycleConfiguration"
-    ]
-    effect    = "Allow"
-    resources = [aws_s3_bucket.log_bucket.arn, "${aws_s3_bucket.log_bucket.arn}/*"]
-  }
-}
+# data "aws_iam_policy_document" "bucket_policy" {
+#   statement {
+#     actions = [
+#       "s3:GetObject",
+#       "s3:ListAllMyBuckets",
+#       "s3:ListBucket",
+#       "s3:PutObject",
+#       "s3:PutObjectAcl",
+#       "s3:GetBucketAcl",
+#       "s3:DeleteObject",
+#       "s3:PutObjectTagging",
+#       "s3:GetObjectTagging",
+#       "s3:DeleteObjectTagging",
+#       "s3:GetLifecycleConfiguration",
+#       "s3:GetBucketAcl",
+#       "s3:PutLifecycleConfiguration"
+#     ]
+#     effect    = "Allow"
+#     resources = [aws_s3_bucket.log_bucket.arn, "${aws_s3_bucket.log_bucket.arn}/*"]
+#   }
+# }
 
 data "aws_ami" "ec2" {
   most_recent = true

@@ -6,3 +6,4 @@ repos:
     - id: terragrunt_fmt
     - id: terraform_docs
       args: ['--args=--output-file README.md --output-mode inject']
+

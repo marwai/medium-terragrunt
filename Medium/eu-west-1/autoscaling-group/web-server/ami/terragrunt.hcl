@@ -19,6 +19,8 @@ terraform {
 
 inputs = {
 
+  service     = "web-server-ami"
+  environment = "webserver-env"
   tags = {
     Service     = "external-alb"
     Owner       = "Marcus"

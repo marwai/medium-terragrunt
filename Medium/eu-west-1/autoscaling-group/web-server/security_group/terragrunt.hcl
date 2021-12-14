@@ -26,7 +26,7 @@ dependency "external-security-group" {
 
 
 inputs = {
-  name        = "front-end-security-group"
+  name        = "front-end-security-group-asg"
   description = "Instance SG to allow LB"
   vpc_id      = dependency.vpc.outputs.vpc_id
 
