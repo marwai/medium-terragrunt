@@ -103,7 +103,7 @@ variable "external_target_group_arns" {
 
 variable "project_name" {
   type    = string
-  default = ""
+  default = "Medium"
 }
 
 variable "external_lb_listener_arn" {
@@ -113,31 +113,17 @@ variable "external_lb_listener_arn" {
 }
 
 variable "external_lb_name" {
-
+  type        = string
+  description = "Name of external load balancer"
+  default     = "medium-lb"
 }
 
 variable "external_lb_zone_id" {
-
+  type        = string
+  description = "Zone ID of external load balancer"
 }
 
 variable "external_lb_security_group_id" {
-
+  type        = string
+  description = "Security group of external load balancer"
 }
-
-# variable "internal_lb_listener_arn" {
-#   type        = string
-#   default     = ""
-#   description = "Listener arn for the internal load balancer"
-# }
-
-# variable "internal_lb_name" {
-
-# }
-
-# variable "internal_lb_zone_id" {
-
-# }
-
-# variable "internal_lb_security_group_id" {
-
-# }

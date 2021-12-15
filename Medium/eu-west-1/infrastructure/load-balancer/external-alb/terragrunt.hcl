@@ -36,21 +36,22 @@ inputs = {
       name             = "external-route-to-nothing"
       backend_protocol = "HTTP"
       backend_port     = 80
-      health_check = {
-        enabled             = true
-        interval            = 20
-        path                = "/"
-        port                = "traffic-port"
-        healthy_threshold   = 3
-        unhealthy_threshold = 5
-        timeout             = 10
-        protocol            = "HTTP"
-        matcher             = "200"
-      }
 
-      conditions = [{
-        path_patterns = ["/", ]
-      }]
+      #     health_check = {
+      #       enabled             = true
+      #       interval            = 20
+      #       path                = "/"
+      #       port                = "traffic-port"
+      #       healthy_threshold   = 3
+      #       unhealthy_threshold = 5
+      #       timeout             = 10
+      #       protocol            = "HTTP"
+      #       matcher             = "200"
+      #     }
+
+      #     conditions = [{
+      #       path_patterns = ["/", ]
+      #     }]
     }
   ]
 
@@ -62,21 +63,21 @@ inputs = {
     }
   ]
 
-  http_tcp_listener_rules = [
-    {
-      port               = "80"
-      protocol           = "HTTP"
-      target_group_index = 0
-      actions = [{
-        type     = "forward"
-        path     = "/"
-        protocol = "HTTP"
-      }]
-      conditions = [{
-        path_patterns = ["/"]
-      }]
-    }
-  ]
+  # http_tcp_listener_rules = [
+  #   {
+  #     port               = "80"
+  #     protocol           = "HTTP"
+  #     target_group_index = 0
+  #     actions = [{
+  #       type     = "forward"
+  #       path     = "/"
+  #       protocol = "HTTP"
+  #     }]
+  #     conditions = [{
+  #       path_patterns = ["/"]
+  #     }]
+  #   }
+  # ]
 
 
   tags = {

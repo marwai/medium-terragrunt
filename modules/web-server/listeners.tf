@@ -10,4 +10,5 @@ resource "aws_lb_listener_rule" "external_forwarder_rule" {
       values = ["/"]
     }
   }
+  priority = 1
 }

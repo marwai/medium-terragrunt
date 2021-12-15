@@ -4,23 +4,23 @@ data "aws_iam_account_alias" "current" {
 #########################
 ## 	       KMS 	       ##
 #########################
-data "aws_iam_policy_document" "kms_policy_document" {
-  statement {
-    actions = ["kms:Decrypt"]
-    resources = [
-      var.kms_arn
-    ]
-  }
-  statement {
-    actions = [
-      "logs:CreateLogStream",
-      "logs:PutLogEvents",
-      "logs:DescribeLogGroups",
-      "logs:DescribeLogStreams"
-    ]
-    resources = ["*"]
-  }
-}
+# data "aws_iam_policy_document" "kms_policy_document" {
+#   statement {
+#     actions = ["kms:Decrypt"]
+#     resources = [
+#       var.kms_arn
+#     ]
+#   }
+#   statement {
+#     actions = [
+#       "logs:CreateLogStream",
+#       "logs:PutLogEvents",
+#       "logs:DescribeLogGroups",
+#       "logs:DescribeLogStreams"
+#     ]
+#     resources = ["*"]
+#   }
+# }
 
 #########################
 ## 	      EC2          ##
