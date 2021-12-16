@@ -1,9 +1,9 @@
-provider "aws" {
-  region = "eu-west-1"
+# provider "aws" {
+#   region = "eu-west-1"
 
-}
+# }
 
-terraform {
-  backend "s3" {
-  }
-}
+# terraform {
+#   backend "s3" {
+#   }
+# }

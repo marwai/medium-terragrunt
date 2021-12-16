@@ -25,7 +25,7 @@ inputs = {
   description = "SG to use with external ALB, allow specific traffic internally but limit based on route based rules"
   vpc_id      = dependency.vpc.outputs.vpc_id
   ingress_cidr_blocks = concat(
-    ["209.93.74.137/32"]
+    ["195.213.150.3/32"]
   )
   # ingress_prefix_list_ids = [ dependency.global.outputs.eu_west_1_aws_ec2_ranges ]
   ingress_rules = ["http-80-tcp"]
