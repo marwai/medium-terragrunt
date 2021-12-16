@@ -29,7 +29,6 @@ No modules.
 | [aws_ami.ec2](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami) | data source |
 | [aws_iam_account_alias.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_account_alias) | data source |
 | [aws_iam_policy_document.ec2_role_trust](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
-| [aws_iam_policy_document.ssm](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 
 ## Inputs
 
@@ -63,5 +62,5 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_asg_arn"></a> [asg\_arn](#output\_asg\_arn) | n/a |
+| <a name="output_asg_arn"></a> [asg\_arn](#output\_asg\_arn) | ################################################################### #                          Output                                ## ################################################################### |
 <!-- END_TF_DOCS -->
