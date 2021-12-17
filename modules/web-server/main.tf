@@ -1,10 +1,25 @@
+##########################
+# Modules
+# Data sources
+# EC2
+# IAM
+# Autoscaling Group
+# Launch Configuration 
+# Listener Rule
+# Security Group
+# Security Group Rules
+# Target group
+# Variables
+# Outputs 
+##########################
+
 ####################################################################
 ##                       Data sources                             ##                      
 ####################################################################
 data "aws_iam_account_alias" "current" {
 }
 ####################################################################
-##                       EC2.                                     ##                      
+##                           EC2                                  ##                      
 ####################################################################
 data "aws_iam_policy_document" "ec2_role_trust" {
   statement {
@@ -58,6 +73,14 @@ resource "aws_autoscaling_group" "dev" {
   lifecycle {
     create_before_destroy = true
   }
+
+  tags = [
+    {
+      "key"                 = "Name"
+      "value"               = "${var.environment}-${var.service}-asg"
+      "propagate_at_launch" = true
+    },
+  ]
 }
 ####################################################################
 ##                        Launch Configuration                    ##                      
@@ -108,7 +131,7 @@ resource "aws_security_group" "security_group" {
   vpc_id = var.vpc_id
 
   tags = {
-    Name = "web-security-group"
+    Name = "${var.environment}-web-security-group"
   }
 }
 
