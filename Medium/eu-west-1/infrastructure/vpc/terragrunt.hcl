@@ -9,11 +9,9 @@ terraform {
     commands = [
       "init"
     ]
-
     arguments = [
     ]
   }
-
 }
 
 inputs = {
