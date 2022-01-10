@@ -16,12 +16,18 @@ terraform {
 
 }
 
+# Handles all the outputs from the module
 dependency "vpc" {
   config_path = "../../vpc"
 }
 
 dependency "external-security-group" {
   config_path = "../external-security-group/"
+}
+
+# enumerate all the Terragrunt modules that need to be applied in order for this module to be able to apply
+dependencies {
+  paths = ["../..//vpc", "../external-security-group/"]
 }
 
 inputs = {

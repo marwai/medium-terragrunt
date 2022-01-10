@@ -13,11 +13,16 @@ terraform {
     arguments = [
     ]
   }
-
 }
 
+# Handles all the outputs from the module
 dependency "vpc" {
   config_path = "../..//vpc"
+}
+
+# enumerate all the Terragrunt modules that need to be applied in order for this module to be able to apply
+dependencies {
+  paths = ["../..//vpc"]
 }
 
 inputs = {
@@ -27,7 +32,6 @@ inputs = {
   ingress_cidr_blocks = concat(
     ["195.213.150.3/32"]
   )
-  # ingress_prefix_list_ids = [ dependency.global.outputs.eu_west_1_aws_ec2_ranges ]
   ingress_rules = ["http-80-tcp"]
   egress_with_cidr_blocks = [
     {
