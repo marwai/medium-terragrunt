@@ -28,6 +28,10 @@ dependency "external_security_group" {
   config_path = "../../infrastructure/load-balancer/external-security-group"
 }
 
+dependencies {
+  paths = ["../../infrastructure//vpc", "../../infrastructure/load-balancer/external-alb", "../../infrastructure/load-balancer/external-security-group"]
+}
+
 inputs = {
 
   # VPC
