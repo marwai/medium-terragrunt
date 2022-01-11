@@ -28,6 +28,10 @@ dependency "external_security_group" {
   config_path = "../../infrastructure/load-balancer/external-security-group"
 }
 
+dependencies {
+  paths = ["../../infrastructure//vpc", "../../infrastructure/load-balancer/external-alb", "../../infrastructure/load-balancer/external-security-group"]
+}
+
 inputs = {
 
   # VPC
@@ -41,10 +45,6 @@ inputs = {
   lb_ingress_rules = ["209.93.74.137/32"]
   project_name     = "Terragrunt Medium"
 
-  # Environment
-  environment = "tools-eu"
-  Environment = "tools-eu"
-
   # listener configuration 
   external_lb_security_group_id = dependency.external_security_group.outputs.security_group_id
   external_lb_listener_arn      = dependency.external_alb.outputs.http_tcp_listener_arns[0]
@@ -52,7 +52,7 @@ inputs = {
   external_lb_zone_id           = dependency.external_alb.outputs.lb_zone_id
   external_target_group_arns    = dependency.external_alb.outputs.target_group_arns
 
-
+  environment = "tools-eu-2"
 
   tags = {
     Name        = "Terragrunt-VPC"
@@ -60,5 +60,6 @@ inputs = {
     Contact     = "marcus.tse"
     Project     = "Terragrunt Medium"
     Environment = "Development"
+    Region      = "eu-west-2"
   }
 }
