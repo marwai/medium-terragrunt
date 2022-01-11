@@ -42,7 +42,7 @@ inputs = {
 
   # Set Inputs
   company_name     = "and"
-  lb_ingress_rules = ["209.93.74.137/32"]
+  lb_ingress_rules = ["/32"]
   project_name     = "Terragrunt Medium"
 
   # listener configuration 

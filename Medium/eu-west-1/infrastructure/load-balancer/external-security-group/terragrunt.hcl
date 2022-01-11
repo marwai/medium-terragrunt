@@ -26,13 +26,11 @@ dependencies {
 }
 
 inputs = {
-  name        = "external-security-group"
-  description = "SG to use with external ALB, allow specific traffic internally but limit based on route based rules"
-  vpc_id      = dependency.vpc.outputs.vpc_id
-  ingress_cidr_blocks = concat(
-    ["195.213.150.3/32"]
-  )
-  ingress_rules = ["http-80-tcp"]
+  name                = "external-security-group"
+  description         = "SG to use with external ALB, allow specific traffic internally but limit based on route based rules"
+  vpc_id              = dependency.vpc.outputs.vpc_id
+  ingress_cidr_blocks = concat(["/32"])
+  ingress_rules       = ["http-80-tcp"]
   egress_with_cidr_blocks = [
     {
       from_port   = 0
