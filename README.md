@@ -23,7 +23,7 @@ If you have already set up your credentials as environment variables,
 
   1. Add you own IP to:
    
-        -  `medium/eu-west-1/infastructure/external-security/terragrunt.hcl` - line 32 -   ingress_cidr_blocks = concat(["<ADD_YOUR_OWN_IP_HERE>/32"])
+        -  `Medium/_commonvars/infastructure/load-balancer-sg.hcl`line 27 -   ingress_cidr_blocks = concat(["<ADD_YOUR_OWN_IP_HERE>/32"])
 
         #### Example
         Before 
@@ -33,10 +33,8 @@ If you have already set up your credentials as environment variables,
         ingress_cidr_blocks = concat(["10.0.0.0/32"])
 
 
-        -  `medium/eu-west-1/services/web-server/terragrunt.hcl` - line 45 - 	lb_ingress_rules = ["ADD_YOUR_OWN_IP_HERE/32"]
+        -  `Medium/_commonvars/infastructure/ec2.hcl` - line 49 - 	lb_ingress_rules = ["ADD_YOUR_OWN_IP_HERE/32"]
 
-        -   `medium/eu-west-2/infastructure/external-security/terragrunt.hcl` - line 32
-        -    `medium/eu-west-2/services/web-server/terragrunt.hcl` - line 45
 
 
 1. Check the contents of the directory and print working directory 
@@ -44,10 +42,10 @@ If you have already set up your credentials as environment variables,
 
 		$ ls       
 
-		Medium         README.md      git.md         modules        terragrunt.hcl    
+		_commonvars dev         graph.svg   prod    
 
 		$ pwd     
-		/Users/man-waitse/Documents/terragrunt-medium
+		/Users/man-waitse/Documents/terragrunt-medium/Medium
 
 2. Export AWS Profile    
    
@@ -58,20 +56,28 @@ If you have already set up your credentials as environment variables,
 		$ terragrunt run-all apply 
 
 		Group 1
-		- Module /Users/man-waitse/Documents/terragrunt-medium/Medium/eu-west-1/infrastructure/vpc
-		- Module /Users/man-waitse/Documents/terragrunt-medium/Medium/eu-west-2/infrastructure/vpc
+                  - Module /Users/man-waitse/Documents/year/2021/work/Internal/terragrunt-medium/Medium/dev/eu-west-1/infrastructure/vpc
+                  - Module /Users/man-waitse/Documents/year/2021/work/Internal/terragrunt-medium/Medium/dev/eu-west-2/infrastructure/vpc
+                  - Module /Users/man-waitse/Documents/year/2021/work/Internal/terragrunt-medium/Medium/prod/eu-west-1/infrastructure/vpc
+                  - Module /Users/man-waitse/Documents/year/2021/work/Internal/terragrunt-medium/Medium/prod/eu-west-2/infrastructure/vpc
 
-		Group 2
-		- Module /Users/man-waitse/Documents/terragrunt-medium/Medium/eu-west-1/infrastructure/load-balancer/external-security-group
-		- Module /Users/man-waitse/Documents/terragrunt-medium/Medium/eu-west-2/infrastructure/load-balancer/external-security-group
+                  Group 2
+                  - Module /Users/man-waitse/Documents/year/2021/work/Internal/terragrunt-medium/Medium/dev/eu-west-1/infrastructure/load-balancer/external-security-group
+                  - Module /Users/man-waitse/Documents/year/2021/work/Internal/terragrunt-medium/Medium/dev/eu-west-2/infrastructure/load-balancer/external-security-group
+                  - Module /Users/man-waitse/Documents/year/2021/work/Internal/terragrunt-medium/Medium/prod/eu-west-1/infrastructure/load-balancer/external-security-group
+                  - Module /Users/man-waitse/Documents/year/2021/work/Internal/terragrunt-medium/Medium/prod/eu-west-2/infrastructure/load-balancer/external-security-group
 
-		Group 3
-		- Module /Users/man-waitse/Documents/terragrunt-medium/Medium/eu-west-1/infrastructure/load-balancer/external-alb
-		- Module /Users/man-waitse/Documents/terragrunt-medium/Medium/eu-west-2/infrastructure/load-balancer/external-alb
+                  Group 3
+                  - Module /Users/man-waitse/Documents/year/2021/work/Internal/terragrunt-medium/Medium/dev/eu-west-1/infrastructure/load-balancer/external-alb
+                  - Module /Users/man-waitse/Documents/year/2021/work/Internal/terragrunt-medium/Medium/dev/eu-west-2/infrastructure/load-balancer/external-alb
+                  - Module /Users/man-waitse/Documents/year/2021/work/Internal/terragrunt-medium/Medium/prod/eu-west-1/infrastructure/load-balancer/external-alb
+                  - Module /Users/man-waitse/Documents/year/2021/work/Internal/terragrunt-medium/Medium/prod/eu-west-2/infrastructure/load-balancer/external-alb
 
-		Group 4
-		- Module /Users/man-waitse/Documents/terragrunt-medium/Medium/eu-west-1/services/web-server
-		- Module /Users/man-waitse/Documents/terragrunt-medium/Medium/eu-west-2/services/web-server
+                  Group 4
+                  - Module /Users/man-waitse/Documents/year/2021/work/Internal/terragrunt-medium/Medium/dev/eu-west-1/services/web-server
+                  - Module /Users/man-waitse/Documents/year/2021/work/Internal/terragrunt-medium/Medium/dev/eu-west-2/services/web-server
+                  - Module /Users/man-waitse/Documents/year/2021/work/Internal/terragrunt-medium/Medium/prod/eu-west-1/services/web-server
+                  - Module /Users/man-waitse/Documents/year/2021/work/Internal/terragrunt-medium/Medium/prod/eu-west-2/services/web-server
 
 		Are you sure you want to run 'terragrunt apply' in each folder of the stack described above? (y/n) 
 
