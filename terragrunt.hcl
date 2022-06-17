@@ -11,14 +11,6 @@ remote_state {
     encrypt = true
   }
 }
-
-terraform {
-  extra_arguments "common_vars" {
-    commands           = get_terraform_commands_that_need_vars()
-    optional_var_files = []
-  }
-}
-
 # ---------------------------------------------------------------------------------------------------------------------
 # One Providers block to rule them all
 # ---------------------------------------------------------------------------------------------------------------------
